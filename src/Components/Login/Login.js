@@ -9,19 +9,15 @@ const Login = () => {
   const handleForm = (e) => {
     e.preventDefault();
   };
-  const { signInUsingGoogle, setLoading } = useAuth();
+  const { signInUsingGoogle } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const redirect_uri = location.state?.from || "./home";
 
   const handleSignInUsingGoogle = () => {
-    signInUsingGoogle()
-      .then((res) => {
-        history.push(redirect_uri);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    signInUsingGoogle().then((res) => {
+      history.push(redirect_uri);
+    });
   };
   return (
     <div>

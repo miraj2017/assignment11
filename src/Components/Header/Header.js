@@ -12,7 +12,7 @@ const Header = () => {
   const [services] = useServices();
   const history = useHistory();
   const [cart] = useCart(services);
-  const { user, logout, setLoading } = useAuth();
+  const { user, logout } = useAuth();
 
   // const totalReducer = (previous, product) => previous + product.price;
   // const total = cart.reduce(totalReducer, 0);
@@ -29,9 +29,6 @@ const Header = () => {
     history.push("/revieworder");
   };
 
-  if (setLoading) {
-    return <Spinner animation="border" variant="danger" />;
-  }
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" fixed="top" bg="light">
